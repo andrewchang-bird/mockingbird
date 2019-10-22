@@ -48,12 +48,17 @@ Add the framework to your `Cartfile`.
 github "birdrides/mockingbird" ~> 0.7.0
 ```
 
-And set up Carthage to only build the framework when running `carthage update`.
+And create a script so that Carthage only builds the framework.
 
 ```bash
-$ carthage update --no-build
-$ cd Carthage/Checkouts/Mockingbird
-$ make bootstrap-carthage
+$ echo 'carthage update --no-build && cd Carthage/Checkouts/mockingbird && make bootstrap-carthage && cd ../../../ && carthage build' > bootstrap-carthage.sh
+$ chmod +x bootstrap-carthage.sh
+```
+
+Then run the script to pull and build dependencies instead of `carthage update`.
+
+```bash
+$ ./bootstrap-carthage.sh
 ```
 
 Then download and install the CLI.
