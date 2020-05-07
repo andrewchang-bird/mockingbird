@@ -8,7 +8,7 @@ let package = Package(
     .iOS(.v8),
   ],
   products: [
-    .library(name: "Mockingbird", targets: ["MockingbirdFramework"]),
+    .library(name: "Mockingbird", targets: ["Mockingbird"]),
     .executable(name: "mockingbird", targets: ["MockingbirdCli"]),
     
     // For local dev only. Uncomment before running `$ swift package generate-xcodeproj`.
@@ -23,7 +23,7 @@ let package = Package(
   ],
   targets: [
     .target(
-      name: "MockingbirdFramework",
+      name: "Mockingbird", // Corresponds to SPM module name.
       dependencies: [],
       path: "MockingbirdFramework",
       linkerSettings: [.linkedFramework("XCTest")]
