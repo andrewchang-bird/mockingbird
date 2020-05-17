@@ -8,11 +8,6 @@ Having issues setting up Mockingbird? Join the [Slack channel](https://slofile.c
 
 ## Tutorial
 
-### Create the Xcode Project
-
-Open Xcode and create an iOS Single View App with the name `iOSMockingbirdExample-SPM`. Make sure that the
-checkbox labeled “Include Unit Tests” is selected.
-
 ### Configure Dependencies
 
 1. File > Swift Packages > Add Package Dependency…
@@ -26,7 +21,7 @@ Install the CLI from the checked out Mockingbird repository in derived data.
 
 ```bash
 $ xcodebuild -resolvePackageDependencies
-$ DERIVED_DATA=$(xcodebuild -showBuildSettings | grep -m1 'BUILD_DIR' | grep -o '\/.*' | dirname $(xargs dirname))
+$ DERIVED_DATA=$(xcodebuild -showBuildSettings | pcregrep -o1 'OBJROOT = (/.*)/Build')
 $ (cd "${DERIVED_DATA}/SourcePackages/checkouts/mockingbird" && make install-prebuilt)
 ```
 
