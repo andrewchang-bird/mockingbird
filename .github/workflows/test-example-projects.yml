@@ -24,6 +24,8 @@ jobs:
     - name: Test
       run: 'PATH=$(pwd)/bin:$PATH make test-cocoapods'
     - name: Cached Test
+      env:
+        GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
       run: make test-cocoapods
 
   test-carthage:
@@ -37,6 +39,8 @@ jobs:
     - name: Test
       run: 'PATH=$(pwd)/bin:$PATH make test-carthage'
     - name: Cached Test
+      env:
+        GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
       run: make test-carthage
 
   test-spm:
@@ -50,4 +54,6 @@ jobs:
     - name: Test
       run: 'PATH=$(pwd)/bin:$PATH make test-spm'
     - name: Cached Test
+      env:
+        GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
       run: make test-spm
