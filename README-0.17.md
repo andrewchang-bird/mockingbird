@@ -85,7 +85,7 @@ Add the framework to a test target in your `Podfile`, making sure to include the
 ```ruby
 target 'MyAppTests' do
   use_frameworks!
-  pod 'MockingbirdFramework', '~> 0.15'
+  pod 'MockingbirdFramework', '~> 0.17'
 end
 ```
 
@@ -116,7 +116,7 @@ Have questions or issues?
 Add the framework to your `Cartfile`.
 
 ```
-github "birdrides/mockingbird" ~> 0.15
+github "birdrides/mockingbird" ~> 0.17
 ```
 
 Build the framework with Carthage, [link it to your test target](https://github.com/birdrides/mockingbird/wiki/Linking-Test-Targets), and install the CLI.
@@ -158,7 +158,7 @@ Add `.package(name: "Mockingbird", …)` and declare `"Mockingbird"` as a depend
 let package = Package(
   name: "MyPackage",
   dependencies: [
-    .package(name: "Mockingbird", url: "https://github.com/birdrides/mockingbird.git", .upToNextMinor(from: "0.15.0")),
+    .package(name: "Mockingbird", url: "https://github.com/birdrides/mockingbird.git", .upToNextMinor(from: "0.17.0")),
   ],
   targets: [
     .testTarget(name: "MyPackageTests", dependencies: ["Mockingbird"]),
